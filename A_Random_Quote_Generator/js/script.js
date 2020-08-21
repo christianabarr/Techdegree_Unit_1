@@ -15,37 +15,43 @@ let quotes = [
     quote: "Cabbage: A familiar kitchen-garden vegetable about as large and wise as a man's head.",
     source: "Ambrose Bierce",
     citation: "The Devil's Dictionary",
-    year: 1906
+    year: 1906,
+    genre: " (Wit & Humor)"
   },
   {
     quote: "Bore, n.: A person who talks when you wish him to listen.",
     source: "Ambrose Bierce",
     citation: "The Devil's Dictionary",
-    year: 1906
+    year: 1906,
+    genre: " (Wit & Humor)"
   },
   {
     quote: "Brain: an apparatus with which we think we think.",
     source: "Ambrose Bierce",
     citation: "The Devil's Dictionary",
-    year: 1906
+    year: 1906,
+    genre: " (Wit & Humor)"
   },
   {
     quote: "Painting: The art of protecting flat surfaces from the weather and exosing them to the critic.",
     source: "Ambrose Bierce",
     citation: "The Devil's Dictionary",
-    year: 1906
+    year: 1906,
+    genre: " (Wit & Humor)"
   },
   {
     quote: "Politeness, n. The most acceptable hypocrisy..",
     source: "Ambrose Bierce",
     citation: "The Devil's Dictionary",
-    year: 1906
+    year: 1906,
+    genre: " (Wit & Humor)"
   },
   {
     quote: "There is nothing new under the sun but there are lots of things we don't know.",
     source: "Ambrose Bierce",
     citation: "The Devil's Dictionary",
-    year: 1906
+    year: 1906,
+    genre: " (Wit & Humor)"
   }
 ];
 
@@ -64,11 +70,23 @@ chosen index position */
 
   let returnedQuote = quotes[randomNum];
 
-  /* Next the random text quote is returned and confirmed by testing with console.log 
+/* Next the random text quote is returned and confirmed by testing with console.log 
 in Chrome's interepreter */
 
   return returnedQuote;
 };
+
+/***
+ * `backgroundColor` function
+***/
+/* A function that automatically generates a new random background color each time the 'Show another quote' button is clicked */
+function newRandomColor() {
+    var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    document.body.style.backgroundColor = randomColor;
+    return randomColor;   
+}
+/* A timer that updates the page to display a new quote every 5 seconds*/
+const timer = setInterval(printQuote, 5000);
 
 /***
  * `printQuote` function
@@ -77,7 +95,7 @@ in Chrome's interepreter */
 function printQuote() {
 
 /* Gets a random quote object from the quotes array by calling the getRandomQuote() function 
-on the 'quotes' array and place it in a new variable which I have named 'returnedQuote' */
+on the 'quotes' array and places it in a new variable which I have named 'returnedQuote' */
 
   let returnedQuote = getRandomQuote(quotes);
 
@@ -101,9 +119,12 @@ if (returnedQuote.year) {
   twoElements += '<span class = "year">' + returnedQuote.year + '</span>';
   };
 
+if (returnedQuote.genre) {
+  twoElements += '<span class = "genre">' + returnedQuote.genre + '</span>';
+  };
 // Concatenates a closing </p> tag onto the end of the string and completes the html string
 
-    twoElements += '</p>';
+  twoElements += '</p>';
 
 /* Sets the innerHTML of the quote-box div equal to the entire html string by placing
 it in the variable 'twoElements' */
@@ -111,9 +132,17 @@ it in the variable 'twoElements' */
   document.getElementById('quote-box').innerHTML = twoElements;
 };
 
+
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
+
+document.body.style.backgroundColor = newRandomColor();
+
+/* added an additional event-listener to the original below, calling upon the newRandomColor 
+function each time the button is clicked.*/
+
+document.getElementById('load-quote').addEventListener("click", newRandomColor, false);
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
