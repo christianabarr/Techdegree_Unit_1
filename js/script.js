@@ -17,39 +17,34 @@ any of the "exceeds" criteria, Thank you!
 ***/
 let quotes = [
   {
-    quote: "Cabbage: A familiar kitchen-garden vegetable about as large and wise as a man's head.",
-    source: "Ambrose Bierce",
-    citation: "The Devil's Dictionary",
-    year: 1906,
-    genre: " (Wit & Humor)"
+    quote: "When you are subverting the power of government, that's a fundamentally dangerous thing to democracy.",
+    source: "Edward Snowden",
+    citation: "a news interview",
   },
   {
-    quote: "Bore, n.: A person who talks when you wish him to listen.",
-    source: "Ambrose Bierce",
-    citation: "The Devil's Dictionary",
-    year: 1906,
-    genre: " (Wit & Humor)"
+    quote: "Whoever controls the media, controls the mind.",
+    source: "Jim Morrison",
+    citation: "unknown",
+    year: 1968,
   },
   {
-    quote: "Brain: an apparatus with which we think we think.",
-    source: "Ambrose Bierce",
-    citation: "The Devil's Dictionary",
-    year: 1906,
-    genre: " (Wit & Humor)"
+    quote: "Whoever controls the media, the images, controls the culture.",
+    source: "Allen Ginsberg",
+    citation: "unknown",
+    year: "",
+    genre: " (Poets, influence)"
   },
   {
-    quote: "Painting: The art of protecting flat surfaces from the weather and exosing them to the critic.",
-    source: "Ambrose Bierce",
-    citation: "The Devil's Dictionary",
-    year: 1906,
-    genre: " (Wit & Humor)"
+    quote: "If you're too open-minded; your brains will fall out.",
+    source: "Lawrence Ferlinghetti",
+    citation: "unknown",
+    genre: " (Poetry)"
   },
   {
-    quote: "Politeness, n. The most acceptable hypocrisy..",
-    source: "Ambrose Bierce",
-    citation: "The Devil's Dictionary",
-    year: 1906,
-    genre: " (Wit & Humor)"
+    quote: "Go ahead, make my day.",
+    source: "Clint Eastwood",
+    citation: "Sudden Impact",
+    year: 1983,
   },
   {
     quote: "There is nothing new under the sun but there are lots of things we don't know.",
@@ -91,13 +86,18 @@ function newRandomColor() {
     return randomColor;   
 }
 /* A timer that updates the page to display a new quote every 5 seconds*/
-const timer = setInterval(printQuote, 5000);
+const timer = setInterval(printQuote, 8000);
 
 /***
  * `printQuote` function
 ***/
 
 function printQuote() {
+
+/* Calls the function from above which randomly selects a background color, enabling 
+this function to run each time the printQoute() function runs */  
+  
+  newRandomColor();
 
 /* Gets a random quote object from the quotes array by calling the getRandomQuote() function 
 on the 'quotes' array and places it in a new variable which I have named 'returnedQuote' */
