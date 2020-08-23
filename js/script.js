@@ -94,8 +94,8 @@ const timer = setInterval(printQuote, 8000);
 
 function printQuote() {
 
-/* Calls the function from above which randomly selects a background color, enabling 
-this function to run each time the printQoute() function runs */  
+/* Calls the newRandomColor() function which randomly selects a background color, 
+triggering it to re-run each time the printQoute() function runs */  
   
   newRandomColor();
 
